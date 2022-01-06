@@ -5,7 +5,10 @@ const useStyles = makeStyles({
   myCustomStyle: {
     fontStyle: 'oblique',
     color: 'cadetblue',
-    fontSize: '20px' /*this doesn't work without !important keyword */,
+    fontSize: '22px' /*this doesn't work without !important keyword */,
+    '&:hover': {
+      color: 'blueviolet',
+    },
   },
 });
 
@@ -14,7 +17,7 @@ function App() {
 
   return (
     <div className='App'>
-      <Typography variant='h1' className={classes.myCustomStyle}>
+      <Typography className={classes.myCustomStyle} variant='h1'>
         Hello world
       </Typography>
     </div>

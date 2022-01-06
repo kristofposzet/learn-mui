@@ -5,12 +5,21 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ThemeProvider } from '@mui/material';
 import Theme from './theme';
+import { CacheProvider } from '@emotion/react';
+import createCache from '@emotion/cache';
+
+const cache = createCache({
+  key: 'css',
+  prepend: true,
+});
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={Theme}>
-      <App />
-    </ThemeProvider>
+    <CacheProvider value={cache}>
+      <ThemeProvider theme={Theme}>
+        <App />
+      </ThemeProvider>
+    </CacheProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
